@@ -23,39 +23,40 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ shortUrl }) => {
     }
   };
 
-  const handleVisit = (url: any) => {
+  const handleVisit = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
-  }
+  };
 
   return (
-  <div className="mt-4 flex flex-wrap items-center gap-2">
-    {/* Copy URL */}
-    <button
-      onClick={handleCopy}
-      className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
-    >
-      <span>📋</span>
-      <span>Copy</span>
-    </button>
+    <div className="mt-4 flex flex-wrap items-center gap-2">
+      {/* Copy URL */}
+      <button
+        onClick={handleCopy}
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+      >
+        <span>📋</span>
+        <span>Copy</span>
+      </button>
 
-    {/* Visit URL */}
-    <button onClick={() => handleVisit(shortUrl)} 
-    className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
->
-    <span>🔗</span>
-    <span>Visit</span>
-    </button>
+      {/* Visit URL */}
+      <button
+        onClick={() => handleVisit(shortUrl)}
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+      >
+        <span>🔗</span>
+        <span>Visit</span>
+      </button>
 
-    {/* Share URL */}
-    <button
-      onClick={handleShare}
-      className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
-    >
-      <span>📤</span>
-      <span>Share</span>
-    </button>
-  </div>
-);
+      {/* Share URL */}
+      <button
+        onClick={handleShare}
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+      >
+        <span>📤</span>
+        <span>Share</span>
+      </button>
+    </div>
+  );
 };
 
 export default ActionButtons;
