@@ -13,7 +13,7 @@ export default function UrlShortener() {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/shorten", {
+      const response = await fetch("https://urlshortnerservice-1-igly.onrender.com/shorten", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
