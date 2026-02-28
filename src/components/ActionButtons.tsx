@@ -7,20 +7,21 @@ interface ActionButtonsProps {
 const ActionButtons: React.FC<ActionButtonsProps> = ({ shortUrl }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(shortUrl);
-    alert("✅ Copied to clipboard!");
+    alert("Copied to clipboard");
   };
 
   const handleShare = () => {
     if (navigator.share) {
       navigator
         .share({
-          title: "Check out my short link!",
+          title: "Check out my short link",
           url: shortUrl,
         })
         .catch((err) => console.error("Share failed:", err));
-    } else {
-      alert("Sharing is not supported in this browser.");
+      return;
     }
+
+    alert("Sharing is not supported in this browser.");
   };
 
   const handleVisit = (url: string) => {
@@ -29,30 +30,24 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ shortUrl }) => {
 
   return (
     <div className="mt-4 flex flex-wrap items-center gap-2">
-      {/* Copy URL */}
       <button
         onClick={handleCopy}
-        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 hover:bg-gray-50"
       >
-        <span>📋</span>
         <span>Copy</span>
       </button>
 
-      {/* Visit URL */}
       <button
         onClick={() => handleVisit(shortUrl)}
-        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 hover:bg-gray-50"
       >
-        <span>🔗</span>
         <span>Visit</span>
       </button>
 
-      {/* Share URL */}
       <button
         onClick={handleShare}
-        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-white-700 hover:bg-gray-50 transition"
+        className="inline-flex items-center justify-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 hover:bg-gray-50"
       >
-        <span>📤</span>
         <span>Share</span>
       </button>
     </div>
